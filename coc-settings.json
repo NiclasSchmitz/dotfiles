@@ -1,0 +1,17 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": [
+        "html",
+        "css",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "markdown"
+    ],
+    "typescript.suggest.enabled": true,
+    "typescript.validate.enable": false,
+    "javascript.suggest.enabled": true,
+    "javascript.validate.enable": false
+}
+
