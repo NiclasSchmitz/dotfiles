@@ -11,6 +11,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ln -s $PWD/bashrc ~/.bashrc
 ln -s $PWD/bash_aliases ~/.bash_aliases
 ln -s $PWD/vimrc ~/.vimrc
+ln -s $PWD/vim ~/.vim
 ln -s $PWD/tmux.conf ~/.tmux.conf
 ln -s $PWD/coc-settings.json ~/.vim/coc-settings.json
 #ln -s $PWD/zshrc ~/.zshrc
