@@ -167,8 +167,12 @@ set scrolloff=5
 
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
+"
+" Number of spaces to use for each step of (auto)indent.
+set shiftwidth=2
+" Number of spaces that a <Tab> counts for.
+set softtabstop=2
+" Use the appropriate number of spaces to insert a <Tab>.
 set expandtab
 
 " Indentation settings for using hard tabs for indent. Display tabs as
