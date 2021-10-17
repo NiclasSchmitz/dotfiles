@@ -1,32 +1,9 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
+" URL: https://vim.wikia.com/wiki/Example_vimrc
+" Authors: https://vim.wikia.com/wiki/Vim_on_Libera_Chat
 " Description: A minimal, but feature rich, example .vimrc. If you are a
 "              newbie, basing your first .vimrc on this file is a good choice.
 "              If you're a more advanced user, building your own .vimrc based
 "              on this file is still a good idea.
-
-"------------------------------------------------------------
-" Plugin Manager {{{1
-"
-" Vim-plug
-"
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'arcticicestudio/nord-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'sheerun/vim-polyglot'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
-Plug 'preservim/nerdtree'
-
-call plug#end()
 
 "------------------------------------------------------------
 " Features {{{1
@@ -41,10 +18,14 @@ set nocompatible
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
-filetype indent plugin on
+if has('filetype')
+  filetype indent plugin on
+endif
 
 " Enable syntax highlighting
-syntax on
+if has('syntax')
+  syntax on
+endif
 
 "------------------------------------------------------------
 " Must have options {{{1
@@ -82,13 +63,11 @@ set showcmd
 " mapping of <C-L> below)
 set hlsearch
 
-" search as characters are entered
-set incsearch
-
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
 " set nomodeline
+
 
 "------------------------------------------------------------
 " Usability options {{{1
@@ -119,7 +98,7 @@ set nostartofline
 set ruler
 
 " Always display the status line, even if only one window is displayed
-"set laststatus=2
+set laststatus=2
 
 " Instead of failing a command because of unsaved changes, instead raise a
 " dialogue asking if you wish to save changed files.
@@ -134,7 +113,9 @@ set visualbell
 set t_vb=
 
 " Enable use of the mouse for all modes
-set mouse=a
+if has('mouse')
+  set mouse=a
+endif
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
@@ -142,10 +123,6 @@ set cmdheight=2
 
 " Display line numbers on the left (number|relativenumber)
 set relativenumber
-set number
-
-" Highlight matching [{()}]
-set showmatch
 
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
@@ -160,6 +137,7 @@ set splitright
 " Minimal number of screen lines to keep above and below the cursor
 set scrolloff=5
 
+
 "------------------------------------------------------------
 " Indentation options {{{1
 "
@@ -167,12 +145,8 @@ set scrolloff=5
 
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-"
-" Number of spaces to use for each step of (auto)indent.
-set shiftwidth=2
-" Number of spaces that a <Tab> counts for.
-set softtabstop=2
-" Use the appropriate number of spaces to insert a <Tab>.
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 " Indentation settings for using hard tabs for indent. Display tabs as
@@ -180,22 +154,11 @@ set expandtab
 "set shiftwidth=4
 "set tabstop=4
 
-" Highlight white space and other invisible characters
-set list listchars=tab:\ \ ,trail:·
-
-" Easier moving of code blocks
-vnoremap < <gv
-vnoremap > >gv
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" Enable folding with the spacebar
-nnoremap <space> za
 
 "------------------------------------------------------------
 " Mappings {{{1
+"
+" Useful mappings
 
 let mapleader=","
 
@@ -207,50 +170,58 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" Easier moving of code blocks
+vnoremap < <gv
+vnoremap > >gv
+
 " Copy to clipboard
 noremap <Leader>y "+y
 
 " Remove trailing whitespace
 nnoremap <C-m> :%s/\s\+$//e<CR>
 
-" fzf plugin
-nnoremap <silent> <leader>o :Files<CR>
-nnoremap <silent> <leader>O :Files!<CR>
+" Change to directory that contains the current file
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
 
 "------------------------------------------------------------
-" Appearance {{{1
+" Plugin Manager {{{1
+"
+" vim-plug
+" For Neovim
+" call plug#begin(stdpath('data') . '/plugged')
+" For vim
+call plug#begin('~/.vim/plugged')
 
-" Enable true color 启用终端24位色
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'arcticicestudio/nord-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
 
-set background=light
+call plug#end()
 
-"let g:nord_cursor_line_number_background = 1
-"let g:nord_italic = 1
-"let g:nord_italic_comments = 1
-"colorscheme nord
-
-colorscheme PaperColor
-
-set cursorline
 
 "------------------------------------------------------------
 " Plugins {{{1
+"
+" Plugin specific stettings, mappings, etc.
 
 " Plugin Airline
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 1
-let g:airline_theme='papercolor'
+let g:airline_theme='monochrome'
 
 " Plugin NerdTree
 map <C-n> :NERDTreeToggle<CR>
 
-" Plugin COC
+" Plugin fzf
+nnoremap <silent> <leader>o :Files<CR>
+nnoremap <silent> <leader>O :Files!<CR>
 
+" Plugin CoC
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
@@ -386,3 +357,29 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+"------------------------------------------------------------
+" Appearance {{{1
+
+" Enable true color 启用终端24位色
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'allow_italic': 1
+  \     }
+  \   }
+  \ }
+
+set background=light
+
+colorscheme PaperColor
+
+
+"------------------------------------------------------------

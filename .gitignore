@@ -1,2 +1,2 @@
-vim/autoload
-vim/plugged
+vim/*
+!vim/coc-settings.json
