@@ -156,3 +156,6 @@ local_scripts_path=$HOME/.local/bin
 if [ -d $local_scripts_path ]; then
     export PATH="$PATH:${local_scripts_path}"
 fi
+
+# Rust
+. "$HOME/.cargo/env"
