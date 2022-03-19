@@ -193,8 +193,11 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " For vim
 call plug#begin('~/.vim/plugged')
 
+Plug 'EdenEast/nightfox.nvim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -202,6 +205,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
+
 
 call plug#end()
 
@@ -377,9 +381,27 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
 
-set background=light
+"set background=light
+colorscheme dayfox
 
-colorscheme PaperColor
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Disable background colors
+"highlight Normal ctermbg=NONE
+"highlight nonText ctermbg=NONE
 
 
 "------------------------------------------------------------
