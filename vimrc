@@ -373,16 +373,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'allow_italic': 1
-  \     }
-  \   }
-  \ }
+set background=dark
 
-"set background=light
-colorscheme dayfox
+colorscheme gruvbox8
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
