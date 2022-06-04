@@ -373,9 +373,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-set background=dark
+set background=light
 
-colorscheme gruvbox8
+colorscheme solarized8
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
