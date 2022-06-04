@@ -2,6 +2,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 
 alias open="xdg-open"
+alias info='info --vi-keys'
 
 #alias yt-mp3="youtube-dl --extract-audio --audio-format 'mp3' --audio-quality 0"
 alias yt-mp3="yt-dlp --extract-audio --audio-format 'mp3' --audio-quality 0"
