@@ -175,7 +175,7 @@ call plug#begin()
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'lifepillar/vim-solarized8'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -215,4 +215,5 @@ if exists('+termguicolors')
 endif
 
 set background=light
-colorscheme PaperColor
+
+colorscheme solarized8
