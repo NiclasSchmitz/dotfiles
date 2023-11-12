@@ -82,7 +82,9 @@ plugins=(
 
 # Homebrew completions
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
 
 source $ZSH/oh-my-zsh.sh
 
