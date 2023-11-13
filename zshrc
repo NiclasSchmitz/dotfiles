@@ -76,7 +76,6 @@ plugins=(
     vi-mode
     fzf
     multipass
-    colored-man-pages
     journal
 )
 
