@@ -1,9 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
- export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+# Check if the operating system is macOS (Darwin)
+IS_DARWIN=$( [[ "$OSTYPE" == darwin* ]] && echo true || echo false )
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -75,13 +78,18 @@ plugins=(
     git
     vi-mode
     fzf
-    multipass
     journal
 )
 
+# Add macOS specific plugins
+if $IS_DARWIN; then
+    plugins+=(multipass)
+fi
+
+
 # Homebrew completions
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
-if [[ "$(uname -s)" == "Darwin" ]]; then
+if $IS_DARWIN; then
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
