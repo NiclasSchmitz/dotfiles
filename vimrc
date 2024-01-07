@@ -141,6 +141,16 @@ set splitright
 " Minimal number of screen lines to keep above and below the cursor
 set scrolloff=5
 
+" Do not wrap lines
+set nowrap
+
+" Improve horizontal scrolling
+set sidescroll=5
+
+" Use special characters as indicators for e.g. trailing spaces
+set listchars=trail:·,tab:»·,precedes:<,extends:>
+set list
+
 
 "------------------------------------------------------------
 " Indentation options {{{1
