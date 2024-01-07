@@ -1,3 +1,6 @@
+# Check if the operating system is macOS (Darwin)
+IS_DARWIN=$( [[ "$OSTYPE" == darwin* ]] && echo true || echo false )
+
 # Extend path
 if [[ -d "$HOME/bin" ]]; then
     PATH=$HOME/bin:$PATH
@@ -7,13 +10,14 @@ if [[ -d "$HOME/.local/bin" ]]; then
     PATH=$HOME/.local/bin:$PATH
 fi
 
+if $IS_DARWIN; then
+    PATH="$PATH:$HOME/Library/Application Support/multipass/bin"
+fi
+
 export PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Check if the operating system is macOS (Darwin)
-IS_DARWIN=$( [[ "$OSTYPE" == darwin* ]] && echo true || echo false )
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
