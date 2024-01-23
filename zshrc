@@ -90,6 +90,7 @@ plugins=(
     vi-mode
     fzf
     journal
+    colored-man-pages
 )
 
 # Add macOS specific plugins
