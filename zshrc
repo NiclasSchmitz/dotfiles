@@ -90,7 +90,7 @@ plugins=(
     vi-mode
     fzf
     journal
-    colored-man-pages
+    ssh-agent
 )
 
 # Add macOS specific plugins
