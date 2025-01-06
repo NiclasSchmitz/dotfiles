@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Reset permissions for files and directories
+
+# directories
+#find . -type d -exec chmod 755 {} \;
+find . -type d -perm 777 -print -exec chmod 755 {} \;
+
+# files
+#find . -type f -exec chmod 644 {} \;
+find . -type f -perm 777 -print -exec chmod 644 {} \;

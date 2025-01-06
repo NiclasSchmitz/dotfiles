@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Check whether or not Windows is using the Light theme (SystemUsesLightTheme can be queried as well)
+if command -v powershell.exe 2>&1 >/dev/null
+then
+    powershell.exe Get-ItemProperty -Path \"HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" -Name AppsUseLightTheme | grep AppsUse | awk '{ print $3 }'
+fi

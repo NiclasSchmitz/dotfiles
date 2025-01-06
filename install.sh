@@ -21,6 +21,9 @@ ln -s $PWD/vim ~/.vim
 ln -s $PWD/tmux.conf ~/.tmux.conf
 ln -s $PWD/dircolors ~/.dircolors
 
+# symlink scripts
+ln -s $PWD/scripts/* ~/.local/bin/
+
 mkdir -p ~/.config
 
 # Neovim mkdir -p ~/.config/nvim

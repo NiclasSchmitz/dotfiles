@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "Deleting node_modules directories..."
+
+find . -maxdepth 2 -type d -iname node_modules -print -exec rm -r {} +
