@@ -208,6 +208,9 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" Insert current date
+nnoremap <F5> "="## " . strftime("%Y-%m-%d")<CR>p
+
 " Plugin fzf
 nnoremap <silent> <leader>o :Files<CR>
 nnoremap <silent> <leader>O :Files!<CR>
