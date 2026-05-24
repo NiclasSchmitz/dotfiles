@@ -155,6 +155,7 @@ set sidescroll=5
 set listchars=trail:·,tab:»·,precedes:<,extends:>
 set list
 
+set colorcolumn=80,120
 
 "------------------------------------------------------------
 " Indentation options {{{1
