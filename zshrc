@@ -10,10 +10,6 @@ if [[ -d "$HOME/.local/bin" ]]; then
     PATH=$HOME/.local/bin:$PATH
 fi
 
-if $IS_DARWIN; then
-    PATH="$PATH:$HOME/Library/Application Support/multipass/bin"
-fi
-
 export PATH
 
 # Path to your oh-my-zsh installation.
@@ -92,12 +88,6 @@ plugins=(
     journal
     ssh-agent
 )
-
-# Add macOS specific plugins
-if $IS_DARWIN; then
-    plugins+=(multipass)
-fi
-
 
 # Homebrew completions
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
