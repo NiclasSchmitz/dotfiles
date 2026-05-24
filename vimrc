@@ -190,6 +190,7 @@ call plug#begin()
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'lifepillar/vim-solarized8'
 Plug 'lifepillar/vim-gruvbox8'
 
 " Initialize plugin system
@@ -232,4 +233,5 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme habamax
+set background=light
+colorscheme solarized8
