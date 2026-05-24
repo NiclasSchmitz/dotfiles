@@ -95,6 +95,9 @@ if $IS_DARWIN; then
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
+# fzf behavior
+export FZF_DEFAULT_OPTS="--no-color"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
