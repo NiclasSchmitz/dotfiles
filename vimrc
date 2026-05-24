@@ -27,6 +27,10 @@ if has('syntax')
   syntax on
 endif
 
+" Use new regular expression engine (fixes an issue where TypeScript files are
+" very slow.
+set re=0
+
 "------------------------------------------------------------
 " Must have options {{{1
 "
