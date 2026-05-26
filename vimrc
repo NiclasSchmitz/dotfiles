@@ -192,6 +192,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -233,5 +234,5 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-set background=light
-colorscheme solarized8
+colorscheme onehalflight
+"colorscheme onehalfdark
